@@ -1,0 +1,40 @@
+---
+# tasks file for docker
+- name: Install apt-transport-https
+  apt:
+    name: apt-transport-https
+    state: present
+    update_cache: yes
+
+- name: Adding the docker gpg key
+  apt_key:
+    keyserver: hkp://pgp.mit.edu:80
+    id: 58118E89F3A912897C070ADBF76221572C52609D
+
+- name: Adding Repository
+  apt_repository:
+    repo: 'deb https://apt.dockerproject.org/repo debian-jessie main'
+    state: present
+    update_cache: yes
+
+- name: Installing Docker
+  apt:
+    name: docker-engine
+    state: present
+    update_cache: yes
+
+# we're also gonna install docker-py to be able to use the ansible docker Module
+- name: Installing python-pip
+  apt:
+    name: python-setuptools
+    state: present
+    update_cache: yes
+
+- name: Installing python-pip
+  easy_install:
+    name: pip
+
+- name: Installing docker-py
+  pip:
+    name: docker-py
+    state: present
