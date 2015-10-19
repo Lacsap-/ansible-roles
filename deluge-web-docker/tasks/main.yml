@@ -1,0 +1,30 @@
+---
+# tasks file for deluge-web-docker
+- name: Creating data directory
+  file:
+    path: "{{ data_directory }}"
+    state: directory
+    recurse: yes
+
+- name: Creating torrent directory
+  file:
+    path: "{{ torrent_directory }}"
+    state: directory
+    recurse: yes
+
+- name: update deluge-web config
+  template:
+    src: web.conf
+    dest: "{{ data_directory }}/web.conf"
+
+- name: Deploying deluge-web container
+  docker:
+    name: deluge-web
+    image: lacsap/deluge-web
+    state: restarted
+    pull: always
+    ports:
+      - 8112:8112
+    volumes:
+      - /data/deluge-web:/data
+      - /data/torrent:/torrent
