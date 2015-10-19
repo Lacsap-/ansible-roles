@@ -1,2 +1,4 @@
 ---
 # defaults file for deluge-web-docker
+torrent_directory: /data/torrent
+data_directory: /data/deluge-web

@@ -1,0 +1,4 @@
+---
+# defaults file for quassel-core-docker
+data_directory: /data/quassel-core
+config_exist: false

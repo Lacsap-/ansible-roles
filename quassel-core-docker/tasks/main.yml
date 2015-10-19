@@ -1,0 +1,30 @@
+---
+# tasks file for quassel-core-docker
+- name: Creating data directory
+  file:
+    path: "{{ data_directory }}"
+    state: directory
+    recurse: yes
+
+- name: Updating quassel-core config
+  template:
+    src: quasselcore.conf
+    dest: "{{ data_directory }}/quasselcore.conf"
+  when: config_exist == "true"
+
+- name: Updating quassel-core config
+  template:
+    src: quassel-storage.sqlite
+    dest: "{{ data_directory }}/quassel-storage.sqlite"
+  when: config_exist == "true"
+
+- name: Deploying quassel-core container
+  docker:
+    name: quassel-core
+    image: lacsap/quassel-core
+    state: restarted
+    pull: always
+    ports:
+      - 4242:4242
+    volumes:
+      - /data/quassel-core:/data
