@@ -1,0 +1,10 @@
+---
+# tasks file for startpage-docker
+- name: Deploying startpage container
+  docker:
+    name: startpage
+    image: lacsap/startpage
+    state: restarted
+    pull: always
+    ports:
+      - 8114:80
