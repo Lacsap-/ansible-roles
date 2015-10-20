@@ -2,3 +2,6 @@
 # defaults file for deluge-web-docker
 torrent_directory: /data/torrent
 data_directory: /data/deluge-web
+
+# place web.conf in the templates folder and switch this to true to restore config
+config_exist: false
