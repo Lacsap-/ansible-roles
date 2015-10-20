@@ -4,7 +4,7 @@
   hosts: test
   sudo: yes
   tasks:
-    - name: install pip
+    - name: install python-setuptools
       apt: >
         name=python-setuptools
         state=present
