@@ -27,5 +27,5 @@
     ports:
       - 8112:8112
     volumes:
-      - /data/deluge-web:/data
-      - /data/torrent:/torrent
+      - "{{ data_directory }}:/data"
+      - "{{ torrent_directory }}:/torrent"
