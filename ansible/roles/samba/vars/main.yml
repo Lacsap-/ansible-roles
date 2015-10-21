@@ -1,0 +1,8 @@
+---
+# vars file for samba
+
+# You can add as many user as you like to samba
+# However: they must already exist on the machine!
+ samba_users:
+   - { name: 'user1', smbpasswd: 'password1' }
+   - { name: 'user2', smbpasswd: 'password2' }

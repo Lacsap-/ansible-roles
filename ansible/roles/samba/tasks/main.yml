@@ -1,0 +1,16 @@
+---
+# tasks file for samba
+- name: Installing samba
+  apt:
+    name: samba
+    state: present
+    update_cache: yes
+
+- name: Creating samba users
+  shell: (echo {{ item.smbpasswd }}; echo {{ item.smbpasswd }}) | smbpasswd -s -a {{ item.name }}
+  with_items:
+    samba_users
+
+- name: Copying Samba configuration
+  template: src=smb.conf dest=/etc/samba/smb.conf
+  notify: Restart Samba
