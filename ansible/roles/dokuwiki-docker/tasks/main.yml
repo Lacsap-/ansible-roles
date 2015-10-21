@@ -1,0 +1,12 @@
+---
+# tasks file for dokuwiki-docker
+- name: Deploying dokuwiki container
+  docker:
+    name: dokuwiki
+    image: lacsap/dokuwiki
+    state: restarted
+    pull: always
+    ports:
+      - "{{ port }}:80"
+
+# No way to restore your data/config yet.
