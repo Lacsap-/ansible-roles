@@ -1,0 +1,8 @@
+---
+# defaults file for owncloud-docker
+
+# port used to access owncloud via web
+port: 8115
+
+# mariadb storage location on host system
+mariadb_storage: /data/mariadb_owncloud

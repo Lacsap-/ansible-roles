@@ -1,0 +1,26 @@
+---
+# tasks file for owncloud-docker
+- name: Deploying mariadb-owncloud container
+  docker:
+    name: "mariadb_owncloud"
+    image: mariadb:latest
+    state: started
+    pull: always
+    volumes:
+      - "{{ mariadb_storage }}:/var/lib/mysql"
+    env:
+      MYSQL_ROOT_PASSWORD: "{{ mysql_root_password }}"
+      MYSQL_DATABASE: "{{ mysql_db }}"
+      MYSQL_USER: "{{ mysql_user }}"
+      MYSQL_PASSWORD: "{{ mysql_user_password }}"
+
+- name: deploying owncloud container
+  docker:
+    name: owncloud
+    image: owncloud:latest
+    state: started
+    pull: always
+    ports:
+      - "{{ port }}:80"
+    links:
+      - "mariadb_owncloud:db"
