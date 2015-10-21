@@ -1,5 +1,11 @@
 ---
 # tasks file for owncloud-docker
+- name: Creating mariadb data directory
+  file:
+    path: "{{ mariadb_storage }}"
+    state: directory
+    recurse: yes
+
 - name: Deploying mariadb-owncloud container
   docker:
     name: "mariadb_owncloud"
