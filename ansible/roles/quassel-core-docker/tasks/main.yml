@@ -18,6 +18,12 @@
     dest: "{{ data_directory }}/quassel-storage.sqlite"
   when: config_exist == "true"
 
+- name: Updating quassel-core ssl certificate
+  template:
+    src: quasselCert.pem
+    dest: "{{ data_directory }}/quasselCert.pem"
+  when: certificate_exist == "true"
+
 - name: Deploying quassel-core container
   docker:
     name: quassel-core
