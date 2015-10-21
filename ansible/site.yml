@@ -1,0 +1,12 @@
+---
+- hosts: dev
+  sudo: yes
+  roles:
+    - docker
+    - deluge-web-docker
+    - quassel-core-docker
+    - startpage-docker
+    - owncloud-docker
+    - dokuwiki-docker
+    # change users config in vars for samba or it won't work
+#    - samba
