@@ -1,0 +1,7 @@
+---
+- name: Installing samba
+  hosts: dev
+  sudo: yes
+  
+  roles:
+    - samba

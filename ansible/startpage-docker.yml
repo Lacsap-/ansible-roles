@@ -1,0 +1,7 @@
+---
+- name: Installing startpage-docker
+  hosts: dev
+  sudo: yes
+  roles:
+    - docker
+    - startpage-docker

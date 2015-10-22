@@ -1,0 +1,7 @@
+---
+- name: Installing owncloud-docker
+  hosts: dev
+  sudo: yes
+  roles:
+    - docker
+    - owncloud-docker

@@ -1,0 +1,8 @@
+---
+- name: Installing deluge-web-docker
+  hosts: dev
+  sudo: yes
+  
+  roles:
+    - docker
+    - deluge-web-docker

@@ -1,0 +1,8 @@
+---
+- name: Installing quassel-core-docker
+  hosts: dev
+  sudo: yes
+  
+  roles:
+    - docker
+    - quassel-core-docker

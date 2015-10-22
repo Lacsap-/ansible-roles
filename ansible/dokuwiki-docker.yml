@@ -1,0 +1,8 @@
+---
+- name: Installing dokuwiki-docker
+  hosts: dev
+  sudo: yes
+  
+  roles:
+    - docker
+    - dokuwiki-docker
