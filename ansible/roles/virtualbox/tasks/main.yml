@@ -1,0 +1,17 @@
+---
+# tasks file for virtualbox
+- name: Adding the contrib component
+  apt_repository:
+    repo: 'deb http://http.debian.net/debian/ jessie main contrib'
+    state: present
+    update_cache: yes
+
+- name: installing linux-headers
+  action: shell apt-get install -y linux-headers-$(uname -r|sed 's,[^-]*-[^-]*-,,') virtualbox
+  ignore_errors: True
+
+- name: Installing virtualbox
+  apt:
+    name: virtualbox
+    state: present
+    update_cache: yes

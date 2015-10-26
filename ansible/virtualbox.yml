@@ -1,0 +1,7 @@
+---
+- name: Installing virtualbox
+  hosts: dev
+  sudo: yes
+
+  roles:
+    - virtualbox
