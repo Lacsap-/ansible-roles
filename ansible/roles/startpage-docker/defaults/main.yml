@@ -1,2 +1,3 @@
 ---
 # defaults file for startpage-docker
+port: 8114

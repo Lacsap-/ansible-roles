@@ -31,6 +31,6 @@
     state: restarted
     pull: always
     ports:
-      - 4242:4242
+      - "{{ port }}:4242"
     volumes:
       - "{{ data_directory }}:/data"

@@ -7,4 +7,4 @@
     state: restarted
     pull: always
     ports:
-      - 8114:80
+      - "{{ port }}:80"
