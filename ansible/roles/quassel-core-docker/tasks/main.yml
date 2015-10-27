@@ -30,6 +30,7 @@
     image: lacsap/quassel-core
     state: restarted
     pull: always
+    restart_policy: always
     ports:
       - "{{ port }}:4242"
     volumes:

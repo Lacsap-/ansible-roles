@@ -6,5 +6,6 @@
     image: lacsap/startpage
     state: restarted
     pull: always
+    restart_policy: always
     ports:
       - "{{ port }}:80"

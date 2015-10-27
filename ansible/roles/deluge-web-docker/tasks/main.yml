@@ -24,6 +24,7 @@
     image: lacsap/deluge-web
     state: restarted
     pull: always
+    restart_policy: always
     ports:
       - "{{ port }}:8112"
     volumes:

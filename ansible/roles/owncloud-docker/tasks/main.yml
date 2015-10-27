@@ -12,6 +12,7 @@
     image: mariadb:latest
     state: started
     pull: always
+    restart_policy: always
     volumes:
       - "{{ mariadb_storage }}:/var/lib/mysql"
     env:
@@ -26,6 +27,7 @@
     image: owncloud:latest
     state: started
     pull: always
+    restart_policy: always
     ports:
       - "{{ port }}:80"
     links:

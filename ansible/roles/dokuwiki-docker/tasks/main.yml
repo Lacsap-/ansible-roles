@@ -6,6 +6,7 @@
     image: lacsap/dokuwiki
     state: restarted
     pull: always
+    restart_policy: always
     ports:
       - "{{ port }}:80"
     volumes:
