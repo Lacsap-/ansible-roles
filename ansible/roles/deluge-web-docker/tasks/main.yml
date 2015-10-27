@@ -25,7 +25,7 @@
     state: restarted
     pull: always
     ports:
-      - 8112:8112
+      - "{{ port }}:8112"
     volumes:
       - "{{ data_directory }}:/data"
       - "{{ torrent_directory }}:/torrent"
