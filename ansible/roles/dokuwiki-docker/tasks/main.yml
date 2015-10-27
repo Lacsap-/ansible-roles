@@ -8,5 +8,7 @@
     pull: always
     ports:
       - "{{ port }}:80"
+    volumes:
+      - "{{ data_directory }}:/data"
 
 # No way to restore your data/config yet.
