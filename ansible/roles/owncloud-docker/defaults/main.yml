@@ -4,5 +4,12 @@
 # port used to access owncloud via web
 port: 8115
 
-# mariadb storage location on host system
-mariadb_storage: /data/mariadb_owncloud
+# mariadb storage and owncloud config location on host system
+mariadb_storage: /docker_data/mariadb_owncloud
+owncloud_data: /docker_data/owncloud_data
+
+# passwords and users for mariadb
+mysql_db: owncloud
+mysql_user: owncloud
+mysql_root_password: password
+mysql_user_password: password3

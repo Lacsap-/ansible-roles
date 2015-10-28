@@ -1,6 +1,2 @@
 ---
 # vars file for owncloud-docker
-mysql_root_password: password
-mysql_db: owncloud
-mysql_user: owncloud
-mysql_user_password: password1
