@@ -1,15 +1,41 @@
 ---
 # tasks file for dokuwiki-docker
-- name: Deploying dokuwiki container
+- name: Checking if a dokuwiki already exist
+  shell: docker ps -a | grep -c dokuwiki || true
+  register: dokuwiki_exist
+
+# this is the dokuwiki container generated on first run.
+- name: Starting dokuwiki container
   docker:
     name: dokuwiki
-    image: lacsap/dokuwiki
-    state: restarted
+    image: lacsap/dokuwiki:latest
+    state: started
     pull: always
     restart_policy: always
     ports:
       - "{{ port }}:80"
-    volumes:
-      - "{{ data_directory }}:/data"
+  when: dokuwiki_exist.stdout < "1"
 
-# No way to restore your data/config yet.
+# All subsequent run of this playbook will create this container
+# which will be linked with the dokuwiki-data container for
+# seamless updates.
+- name: Starting dokuwiki container
+  docker:
+    name: dokuwiki
+    image: lacsap/dokuwiki:latest
+    state: reloaded
+    pull: always
+    restart_policy: always
+    ports:
+      - "{{ port }}:80"
+    volumes_from: dokuwiki-data
+  when: dokuwiki_exist.stdout > "0"
+
+#this container hold dokuwiki's data it is only created on first run.
+- name: Deploying dokuwiki data container
+  docker:
+    name: dokuwiki-data
+    image: lacsap/dokuwiki:latest
+    state: present
+    volumes_from: dokuwiki
+  when: dokuwiki_exist.stdout < "1"
