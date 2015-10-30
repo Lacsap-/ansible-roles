@@ -1,0 +1,8 @@
+---
+- name: Installing gitlabce-docker
+  hosts: dev
+  sudo: yes
+
+  roles:
+    - docker
+    - gitlabce-docker

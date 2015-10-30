@@ -1,0 +1,34 @@
+---
+# tasks file for gitlabce-docker
+- name: Creating config directory
+  file:
+    path: "{{ config_directory }}"
+    state: directory
+    recurse: yes
+
+- name: Creating log directory
+  file:
+    path: "{{ log_directory }}"
+    state: directory
+    recurse: yes
+
+- name: Creating data directory
+  file:
+    path: "{{ data_directory }}"
+    state: directory
+    recurse: yes
+
+- name: Deploying gitlab-ce container
+  docker:
+    name: gitlab-ce
+    image: gitlab/gitlab-ce:latest
+    state: reloaded
+    pull: always
+    restart_policy: always
+    ports:
+      - "{{ http_port }}:80"
+      - "{{ https_port }}:443"
+    volumes:
+      - "{{ config_directory }}:/etc/gitlab"
+      - "{{ log_directory }}:/var/log/gitlab"
+      - "{{ data_directory }}:/var/opt/gitlab"
