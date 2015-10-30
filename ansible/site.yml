@@ -8,4 +8,5 @@
 - include: owncloud-docker.yml
 - include: quassel-core-docker.yml
 - include: startpage-docker.yml
+- include: gitlabce-docker.yml
 - include: samba.yml
