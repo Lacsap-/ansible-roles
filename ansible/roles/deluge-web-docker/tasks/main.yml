@@ -5,6 +5,9 @@
     path: "{{ data_directory }}"
     state: directory
     recurse: yes
+    owner: "{{ folder_owner }}"
+    group: "{{ folder_group }}"
+    mode: "{{ folder_mode }}"
 
 - name: Creating torrent directory
   file:

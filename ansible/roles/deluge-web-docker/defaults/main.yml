@@ -1,8 +1,12 @@
 ---
 # defaults file for deluge-web-docker
 port: 8112
+
 torrent_directory: /data/torrent
 data_directory: /data/deluge-web
+folder_owner: root
+folder_group: root
+folder_mode: 0770
 
 # place web.conf in the templates folder and switch this to true to restore config
 config_exist: false
