@@ -19,7 +19,7 @@
   template:
     src: web.conf
     dest: "{{ data_directory }}/web.conf"
-  when: config_exist == "true"
+  when: config_exist
 
 - name: Deploying deluge-web container
   docker:
