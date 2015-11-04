@@ -1,0 +1,17 @@
+---
+# tasks file for starbound-docker
+- name: Deploying starbound container
+  docker:
+    name: starbound
+    image: lacsap/starbound
+    state: reloaded
+    pull: always
+    restart_policy: always
+    ports:
+      - "{{ port }}:21025"
+    env:
+      STEAM_USERNAME: "{{ steam_username }}"
+      STEAM_PASSWORD: "{{ steam_password }}"
+
+    volumes:
+      - "{{ starbound_data }}:/server/steamcmd/starbound"

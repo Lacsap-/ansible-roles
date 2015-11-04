@@ -1,0 +1,4 @@
+---
+# defaults file for starbound-docker
+port: 21025
+starbound_data: /data/starbound

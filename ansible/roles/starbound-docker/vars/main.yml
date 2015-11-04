@@ -1,0 +1,6 @@
+---
+# vars file for starbound-docker
+
+# You need a steam account with starbound to download the game
+steam_username: username
+steam_password: password
