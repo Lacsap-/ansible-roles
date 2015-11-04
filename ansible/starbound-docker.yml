@@ -1,0 +1,8 @@
+---
+- name: Installing starbound-docker
+  hosts: dev
+  sudo: yes
+
+  roles:
+    - docker
+    - starbound-docker
