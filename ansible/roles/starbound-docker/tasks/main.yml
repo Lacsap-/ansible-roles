@@ -1,5 +1,11 @@
 ---
 # tasks file for starbound-docker
+- name: Creating data directory
+  file:
+    path: "{{ data_directory }}"
+    state: directory
+    recurse: yes
+
 - name: Deploying starbound container
   docker:
     name: starbound
@@ -14,4 +20,4 @@
       STEAM_PASSWORD: "{{ steam_password }}"
 
     volumes:
-      - "{{ starbound_data }}:/server/steamcmd/starbound"
+      - "{{ data_directory }}:/server/steamcmd/starbound"
