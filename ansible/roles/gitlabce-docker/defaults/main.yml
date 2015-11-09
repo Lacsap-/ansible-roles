@@ -2,6 +2,7 @@
 # defaults file for gitlabce-docker
 http_port: 8117
 https_port: 4117
+ssh_port: 2222
 
 config_directory: /data/gitlab-ce/config
 log_directory: /data/gitlab-ce/log

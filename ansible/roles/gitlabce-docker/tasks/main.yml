@@ -28,6 +28,7 @@
     ports:
       - "{{ http_port }}:80"
       - "{{ https_port }}:443"
+      - "{{ ssh_port }}:22"
     volumes:
       - "{{ config_directory }}:/etc/gitlab"
       - "{{ log_directory }}:/var/log/gitlab"
