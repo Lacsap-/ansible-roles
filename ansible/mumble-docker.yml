@@ -1,0 +1,7 @@
+---
+- name: Installing mumble-docker
+  hosts: dev
+  sudo: yes
+  roles:
+    - docker
+    - mumble-docker

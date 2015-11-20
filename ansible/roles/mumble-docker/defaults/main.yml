@@ -1,0 +1,4 @@
+---
+# defaults file for mumble-docker
+data_directory: /data/mumble
+mumble_port: 64738

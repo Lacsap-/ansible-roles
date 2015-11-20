@@ -1,0 +1,19 @@
+---
+# tasks file for mumble-docker
+- name: Creating data directory
+  file:
+    path: "{{ data_directory }}"
+    state: directory
+    recurse: yes
+
+- name: Deploying mumble container
+  docker:
+    name: mumble
+    image: lacsap/mumble:latest
+    state: reloaded
+    pull: always
+    restart_policy: always
+    ports:
+      - "{{ mumble_port }}:64738"
+    volumes:
+      - "{{ data_directory }}:/data"
