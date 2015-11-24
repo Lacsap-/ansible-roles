@@ -2,3 +2,5 @@
 # defaults file for minecraft-docker
 data_directory: /data/minecraft
 minecraft_port: 25565
+memory: 1024 #in MB
+version: 1.8.8

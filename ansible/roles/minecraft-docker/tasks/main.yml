@@ -13,6 +13,9 @@
     state: reloaded
     pull: always
     restart_policy: always
+    env:
+      MEMORY: "{{ memory }}"
+      VERSION: "{{ version }}"
     ports:
       - "{{ minecraft_port }}:25565"
     volumes:
