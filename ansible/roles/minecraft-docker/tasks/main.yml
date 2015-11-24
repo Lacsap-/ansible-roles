@@ -1,0 +1,19 @@
+---
+# tasks file for minecraft-docker
+- name: Creating data directory
+  file:
+    path: "{{ data_directory }}"
+    state: directory
+    recurse: yes
+
+- name: Deploying minecraft container
+  docker:
+    name: minecraft
+    image: lacsap/minecraft:latest
+    state: reloaded
+    pull: always
+    restart_policy: always
+    ports:
+      - "{{ minecraft_port }}:25565"
+    volumes:
+      - "{{ data_directory }}:/data"

@@ -1,0 +1,4 @@
+---
+# defaults file for minecraft-docker
+data_directory: /data/minecraft
+minecraft_port: 25565
