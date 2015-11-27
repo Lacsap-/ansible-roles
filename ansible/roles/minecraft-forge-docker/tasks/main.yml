@@ -8,7 +8,7 @@
 
 - name: Deploying minecraft-forge container
   docker:
-    name: minecraft-foge
+    name: minecraft-forge
     image: lacsap/minecraft-forge:latest
     state: reloaded
     pull: always
