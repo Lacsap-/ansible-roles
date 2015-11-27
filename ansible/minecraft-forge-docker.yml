@@ -1,0 +1,7 @@
+---
+- name: Installing minecraft-docker
+  hosts: dev
+  sudo: yes
+  roles:
+    - docker
+    - minecraft-forge-docker

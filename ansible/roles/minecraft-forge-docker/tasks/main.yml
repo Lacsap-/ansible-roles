@@ -1,0 +1,23 @@
+---
+# tasks file for minecraft-docker
+- name: Creating data directory
+  file:
+    path: "{{ data_directory }}"
+    state: directory
+    recurse: yes
+
+- name: Deploying minecraft-forge container
+  docker:
+    name: minecraft-foge
+    image: lacsap/minecraft-forge:latest
+    state: reloaded
+    pull: always
+    restart_policy: always
+    env:
+      MEMORY: "{{ memory }}"
+      MCVERSION: "{{ mcversion }}"
+      FORGEVERSION: "{{ forgeversion }}"
+    ports:
+      - "{{ minecraft_port }}:25565"
+    volumes:
+      - "{{ data_directory }}:/data"
