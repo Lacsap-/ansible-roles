@@ -1,0 +1,4 @@
+---
+# defaults file for deluge-web
+deluge_user: deluge
+deluge_group: deluge

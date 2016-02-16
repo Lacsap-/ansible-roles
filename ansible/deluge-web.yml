@@ -1,0 +1,7 @@
+---
+- name: Install deluge-web
+  hosts: dev
+  become: yes
+
+  roles:
+    - deluge-web
