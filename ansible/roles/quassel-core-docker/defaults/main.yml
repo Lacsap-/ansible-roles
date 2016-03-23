@@ -2,8 +2,3 @@
 # defaults file for quassel-core-docker
 port: 4242
 data_directory: /data/quassel-core
-
-# Switch these on if you want to restore your config.
-# You can restore only the config and docker will generate a new cert on first run.
-config_exist: false
-certificate_exist: false

@@ -6,24 +6,6 @@
     state: directory
     recurse: yes
 
-- name: Updating quassel-core config
-  template:
-    src: quasselcore.conf
-    dest: "{{ data_directory }}/quasselcore.conf"
-  when: config_exist == "true"
-
-- name: Updating quassel-core config
-  template:
-    src: quassel-storage.sqlite
-    dest: "{{ data_directory }}/quassel-storage.sqlite"
-  when: config_exist == "true"
-
-- name: Updating quassel-core ssl certificate
-  template:
-    src: quasselCert.pem
-    dest: "{{ data_directory }}/quasselCert.pem"
-  when: certificate_exist == "true"
-
 - name: Deploying quassel-core container
   docker:
     name: quassel-core
